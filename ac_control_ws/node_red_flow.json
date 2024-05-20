@@ -1,0 +1,878 @@
+[
+    {
+        "id": "40e2d7bc7787ade7",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ui_numeric",
+        "type": "ui_numeric",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "label": "Air Temperature",
+        "tooltip": "°C",
+        "group": "4a30a8e0116ae52c",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "wrap": false,
+        "passthru": true,
+        "topic": "",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "step": "0.5",
+        "className": "",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "change"
+            ]
+        ]
+    },
+    {
+        "id": "change",
+        "type": "change",
+        "z": "40e2d7bc7787ade7",
+        "name": "Set Flow Air Temperature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "airTemperature",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 470,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "function",
+        "type": "function",
+        "z": "40e2d7bc7787ade7",
+        "name": "Format airTemperature Payload",
+        "func": "var airTemperature = flow.get('airTemperature') || 0;\nmsg.payload = {\n    ta: airTemperature\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 480,
+        "wires": [
+            [
+                "mqtt_out"
+            ]
+        ]
+    },
+    {
+        "id": "mqtt_out",
+        "type": "mqtt out",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "topic": "ac/control/airTemperature",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "78e567fe49f2df20",
+        "x": 890,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "ab92d6af8c695e6f",
+        "type": "ui_numeric",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "label": "Radiant Temperature",
+        "tooltip": "°C",
+        "group": "4a30a8e0116ae52c",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "wrap": false,
+        "passthru": true,
+        "topic": "",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "step": "0.5",
+        "className": "",
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "8de2a8451ddb7b64"
+            ]
+        ]
+    },
+    {
+        "id": "8de2a8451ddb7b64",
+        "type": "change",
+        "z": "40e2d7bc7787ade7",
+        "name": "Set Flow Radiant Temperature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "radiantTemperature",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 490,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "93f150bd0f2d746c",
+        "type": "inject",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 480,
+        "wires": [
+            [
+                "function",
+                "d811f914c1ad7784",
+                "cd4b3e52c142eb40",
+                "6b51aa2468ea660f",
+                "1b810ae1d81f7273",
+                "463fdbc6f696ddb4",
+                "3ac6e664bd290627"
+            ]
+        ]
+    },
+    {
+        "id": "d811f914c1ad7784",
+        "type": "function",
+        "z": "40e2d7bc7787ade7",
+        "name": "Format radiantTemperature Payload",
+        "func": "var radiantTemperature = flow.get('radiantTemperature') || 0;\nmsg.payload = {\n    tr: radiantTemperature\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 520,
+        "wires": [
+            [
+                "4f68b3287b400be3"
+            ]
+        ]
+    },
+    {
+        "id": "4f68b3287b400be3",
+        "type": "mqtt out",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "topic": "ac/control/radiantTemperature",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "78e567fe49f2df20",
+        "x": 870,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "5b91c50e1655611d",
+        "type": "ui_numeric",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "label": "Air Velocity",
+        "tooltip": "m/s",
+        "group": "4a30a8e0116ae52c",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "wrap": false,
+        "passthru": true,
+        "topic": "",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "4",
+        "step": "0.1",
+        "className": "",
+        "x": 150,
+        "y": 240,
+        "wires": [
+            [
+                "ba8238353d387186"
+            ]
+        ]
+    },
+    {
+        "id": "ba8238353d387186",
+        "type": "change",
+        "z": "40e2d7bc7787ade7",
+        "name": "Set Flow Air Velocity",
+        "rules": [
+            {
+                "t": "set",
+                "p": "airVelocity",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 460,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "940e4cabd6a37d2a",
+        "type": "ui_numeric",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "label": "Relative Humidity",
+        "tooltip": "%",
+        "group": "4a30a8e0116ae52c",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "wrap": false,
+        "passthru": true,
+        "topic": "",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "step": "1",
+        "className": "",
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "30e06704f503b09b"
+            ]
+        ]
+    },
+    {
+        "id": "30e06704f503b09b",
+        "type": "change",
+        "z": "40e2d7bc7787ade7",
+        "name": "Set Flow Relative Humidity",
+        "rules": [
+            {
+                "t": "set",
+                "p": "relativeHumidity",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 480,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "591593ec76cd8a4f",
+        "type": "ui_numeric",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "label": "Metabolic Rate",
+        "tooltip": "",
+        "group": "4a30a8e0116ae52c",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "wrap": false,
+        "passthru": true,
+        "topic": "",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": "0.7",
+        "max": "4",
+        "step": "0.1",
+        "className": "",
+        "x": 160,
+        "y": 320,
+        "wires": [
+            [
+                "87d4fb7e48a7684d"
+            ]
+        ]
+    },
+    {
+        "id": "87d4fb7e48a7684d",
+        "type": "change",
+        "z": "40e2d7bc7787ade7",
+        "name": "Set Flow Metabolic Rate",
+        "rules": [
+            {
+                "t": "set",
+                "p": "metabolicRate",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 470,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "30e7ea97f31845cb",
+        "type": "ui_numeric",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "label": "Clothing Level",
+        "tooltip": "",
+        "group": "4a30a8e0116ae52c",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "wrap": false,
+        "passthru": true,
+        "topic": "",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1.5",
+        "step": "0.1",
+        "className": "",
+        "x": 160,
+        "y": 360,
+        "wires": [
+            [
+                "405531b4500c5385"
+            ]
+        ]
+    },
+    {
+        "id": "405531b4500c5385",
+        "type": "change",
+        "z": "40e2d7bc7787ade7",
+        "name": "Set Flow Clothing Level",
+        "rules": [
+            {
+                "t": "set",
+                "p": "clothingLevel",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 470,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6b51aa2468ea660f",
+        "type": "function",
+        "z": "40e2d7bc7787ade7",
+        "name": "Format relativeHumidity Payload",
+        "func": "var relativeHumidity = flow.get('relativeHumidity') || 0;\nmsg.payload = {\n    rh: relativeHumidity\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 600,
+        "wires": [
+            [
+                "3239817bc09c4509"
+            ]
+        ]
+    },
+    {
+        "id": "3239817bc09c4509",
+        "type": "mqtt out",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "topic": "ac/control/relativeHumidity",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "78e567fe49f2df20",
+        "x": 880,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "cd4b3e52c142eb40",
+        "type": "function",
+        "z": "40e2d7bc7787ade7",
+        "name": "Format airVelocity Payload",
+        "func": "var airVelocity = flow.get('airVelocity') || 0;\nmsg.payload = {\n    vel: airVelocity\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 560,
+        "wires": [
+            [
+                "2f635c3b83646121"
+            ]
+        ]
+    },
+    {
+        "id": "2f635c3b83646121",
+        "type": "mqtt out",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "topic": "ac/control/airVelocity",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "78e567fe49f2df20",
+        "x": 900,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "463fdbc6f696ddb4",
+        "type": "function",
+        "z": "40e2d7bc7787ade7",
+        "name": "Format clothingLevel Payload",
+        "func": "var clothingLevel = flow.get('clothingLevel') || 0;\nmsg.payload = {\n    clo: clothingLevel\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 680,
+        "wires": [
+            [
+                "6b99a46d7c8fa3bd"
+            ]
+        ]
+    },
+    {
+        "id": "6b99a46d7c8fa3bd",
+        "type": "mqtt out",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "topic": "ac/control/clothingLevel",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "78e567fe49f2df20",
+        "x": 890,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "1b810ae1d81f7273",
+        "type": "function",
+        "z": "40e2d7bc7787ade7",
+        "name": "Format metabolicRate Payload",
+        "func": "var metabolicRate = flow.get('metabolicRate') || 0;\nmsg.payload = {\n    met: metabolicRate\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 640,
+        "wires": [
+            [
+                "3814ac52f721ae94"
+            ]
+        ]
+    },
+    {
+        "id": "3814ac52f721ae94",
+        "type": "mqtt out",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "topic": "ac/control/metabolicRate",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "78e567fe49f2df20",
+        "x": 890,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "7cd2c197a5d8b070",
+        "type": "function",
+        "z": "40e2d7bc7787ade7",
+        "name": "Parse PMV Payload",
+        "func": "var data = JSON.parse(msg.payload);\nmsg.payload = data.pmv;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 800,
+        "wires": [
+            [
+                "199a4212e85eb7aa"
+            ]
+        ]
+    },
+    {
+        "id": "450356948057598f",
+        "type": "mqtt in",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "topic": "ac/control/pmv",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "78e567fe49f2df20",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 800,
+        "wires": [
+            [
+                "7cd2c197a5d8b070"
+            ]
+        ]
+    },
+    {
+        "id": "199a4212e85eb7aa",
+        "type": "ui_gauge",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "group": "4a30a8e0116ae52c",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "PMV",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-3",
+        "max": "3",
+        "colors": [
+            "#1f77b4",
+            "#00b500",
+            "#ca3838"
+        ],
+        "seg1": "-1",
+        "seg2": "1",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "d0b802cb869795df",
+        "type": "mqtt in",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "topic": "ac/control/ppd",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "78e567fe49f2df20",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 840,
+        "wires": [
+            [
+                "18fb7b8b9cdd6302"
+            ]
+        ]
+    },
+    {
+        "id": "18fb7b8b9cdd6302",
+        "type": "function",
+        "z": "40e2d7bc7787ade7",
+        "name": "Parse PPD Payload",
+        "func": "var data = JSON.parse(msg.payload);\nmsg.payload = data.ppd;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 840,
+        "wires": [
+            [
+                "6adba060e9841633"
+            ]
+        ]
+    },
+    {
+        "id": "6adba060e9841633",
+        "type": "ui_gauge",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "group": "4a30a8e0116ae52c",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "PPD",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "33",
+        "seg2": "66",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "b8ee54f0ac94acf0",
+        "type": "ui_switch",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "label": "Enable PMV Follower",
+        "tooltip": "",
+        "group": "4a30a8e0116ae52c",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 180,
+        "y": 400,
+        "wires": [
+            [
+                "45b99a1551502a35"
+            ]
+        ]
+    },
+    {
+        "id": "45b99a1551502a35",
+        "type": "change",
+        "z": "40e2d7bc7787ade7",
+        "name": "Set Flow Enable PMV Follower",
+        "rules": [
+            {
+                "t": "set",
+                "p": "enableFollower",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 490,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3ac6e664bd290627",
+        "type": "function",
+        "z": "40e2d7bc7787ade7",
+        "name": "Format enableFollower Payload",
+        "func": "var enableFollower = flow.get('enableFollower');\nmsg.payload = {\n    enFollower: enableFollower\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 720,
+        "wires": [
+            [
+                "f5b98e478e879b05"
+            ]
+        ]
+    },
+    {
+        "id": "f5b98e478e879b05",
+        "type": "mqtt out",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "topic": "ac/control/enableFollower",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "78e567fe49f2df20",
+        "x": 890,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "e1562dc99851a2c3",
+        "type": "mqtt in",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "topic": "ac/system/airTemperatureFix",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "78e567fe49f2df20",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 80,
+        "wires": [
+            [
+                "b55a393fbe2202ad"
+            ]
+        ]
+    },
+    {
+        "id": "b55a393fbe2202ad",
+        "type": "function",
+        "z": "40e2d7bc7787ade7",
+        "name": "Parse airTemperatureFix Payload",
+        "func": "var data = JSON.parse(msg.payload);\nmsg.payload = data.tafix;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 80,
+        "wires": [
+            [
+                "ui_numeric"
+            ]
+        ]
+    },
+    {
+        "id": "4a30a8e0116ae52c",
+        "type": "ui_group",
+        "name": "Parameters",
+        "tab": "a6471fb1cc0ba838",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "78e567fe49f2df20",
+        "type": "mqtt-broker",
+        "name": "AC Server",
+        "broker": "192.168.57.129",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a6471fb1cc0ba838",
+        "type": "ui_tab",
+        "name": "AC Control",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
