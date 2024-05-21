@@ -8,6 +8,154 @@
         "env": []
     },
     {
+        "id": "78e567fe49f2df20",
+        "type": "mqtt-broker",
+        "name": "AC Server",
+        "broker": "192.168.57.129",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a6471fb1cc0ba838",
+        "type": "ui_tab",
+        "name": "AC Control",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "0dd3b2ba6ee30dd5",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "4a30a8e0116ae52c",
+        "type": "ui_group",
+        "name": "Parameters",
+        "tab": "a6471fb1cc0ba838",
+        "order": 1,
+        "disp": true,
+        "width": 24,
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "ui_numeric",
         "type": "ui_numeric",
         "z": "40e2d7bc7787ade7",
@@ -15,9 +163,9 @@
         "label": "Air Temperature",
         "tooltip": "°C",
         "group": "4a30a8e0116ae52c",
-        "order": 0,
-        "width": "6",
-        "height": "1",
+        "order": 1,
+        "width": 6,
+        "height": 2,
         "wrap": false,
         "passthru": true,
         "topic": "",
@@ -89,7 +237,7 @@
         "correl": "",
         "expiry": "",
         "broker": "78e567fe49f2df20",
-        "x": 890,
+        "x": 990,
         "y": 480,
         "wires": []
     },
@@ -101,9 +249,9 @@
         "label": "Radiant Temperature",
         "tooltip": "°C",
         "group": "4a30a8e0116ae52c",
-        "order": 0,
-        "width": "6",
-        "height": "1",
+        "order": 5,
+        "width": 6,
+        "height": 2,
         "wrap": false,
         "passthru": true,
         "topic": "",
@@ -168,7 +316,9 @@
                 "6b51aa2468ea660f",
                 "1b810ae1d81f7273",
                 "463fdbc6f696ddb4",
-                "3ac6e664bd290627"
+                "3ac6e664bd290627",
+                "ddfe7c3269d598fd",
+                "4e6e75fa207828ff"
             ]
         ]
     },
@@ -206,7 +356,7 @@
         "correl": "",
         "expiry": "",
         "broker": "78e567fe49f2df20",
-        "x": 870,
+        "x": 970,
         "y": 520,
         "wires": []
     },
@@ -218,9 +368,9 @@
         "label": "Air Velocity",
         "tooltip": "m/s",
         "group": "4a30a8e0116ae52c",
-        "order": 0,
-        "width": "6",
-        "height": "1",
+        "order": 7,
+        "width": 6,
+        "height": 2,
         "wrap": false,
         "passthru": true,
         "topic": "",
@@ -266,9 +416,9 @@
         "label": "Relative Humidity",
         "tooltip": "%",
         "group": "4a30a8e0116ae52c",
-        "order": 0,
-        "width": "6",
-        "height": "1",
+        "order": 2,
+        "width": 6,
+        "height": 2,
         "wrap": false,
         "passthru": true,
         "topic": "",
@@ -314,9 +464,9 @@
         "label": "Metabolic Rate",
         "tooltip": "",
         "group": "4a30a8e0116ae52c",
-        "order": 0,
-        "width": "6",
-        "height": "1",
+        "order": 6,
+        "width": 6,
+        "height": 2,
         "wrap": false,
         "passthru": true,
         "topic": "",
@@ -362,9 +512,9 @@
         "label": "Clothing Level",
         "tooltip": "",
         "group": "4a30a8e0116ae52c",
-        "order": 0,
-        "width": "6",
-        "height": "1",
+        "order": 8,
+        "width": 6,
+        "height": 2,
         "wrap": false,
         "passthru": true,
         "topic": "",
@@ -436,7 +586,7 @@
         "correl": "",
         "expiry": "",
         "broker": "78e567fe49f2df20",
-        "x": 880,
+        "x": 980,
         "y": 600,
         "wires": []
     },
@@ -474,7 +624,7 @@
         "correl": "",
         "expiry": "",
         "broker": "78e567fe49f2df20",
-        "x": 900,
+        "x": 1000,
         "y": 560,
         "wires": []
     },
@@ -512,7 +662,7 @@
         "correl": "",
         "expiry": "",
         "broker": "78e567fe49f2df20",
-        "x": 890,
+        "x": 990,
         "y": 680,
         "wires": []
     },
@@ -550,7 +700,7 @@
         "correl": "",
         "expiry": "",
         "broker": "78e567fe49f2df20",
-        "x": 890,
+        "x": 990,
         "y": 640,
         "wires": []
     },
@@ -559,7 +709,7 @@
         "type": "function",
         "z": "40e2d7bc7787ade7",
         "name": "Parse PMV Payload",
-        "func": "var data = JSON.parse(msg.payload);\nmsg.payload = data.pmv;\nreturn msg;",
+        "func": "var data = JSON.parse(msg.payload);\nmsg.payload = parseFloat(data.pmv).toFixed(4);\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -567,7 +717,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 800,
+        "y": 1000,
         "wires": [
             [
                 "199a4212e85eb7aa"
@@ -588,10 +738,11 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 800,
+        "y": 1000,
         "wires": [
             [
-                "7cd2c197a5d8b070"
+                "7cd2c197a5d8b070",
+                "b6b7f037a277da73"
             ]
         ]
     },
@@ -601,9 +752,9 @@
         "z": "40e2d7bc7787ade7",
         "name": "",
         "group": "4a30a8e0116ae52c",
-        "order": 8,
-        "width": 0,
-        "height": 0,
+        "order": 3,
+        "width": 6,
+        "height": 4,
         "gtype": "gage",
         "title": "PMV",
         "label": "units",
@@ -619,8 +770,8 @@
         "seg2": "1",
         "diff": false,
         "className": "",
-        "x": 950,
-        "y": 800,
+        "x": 1050,
+        "y": 1000,
         "wires": []
     },
     {
@@ -637,10 +788,11 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 840,
+        "y": 1040,
         "wires": [
             [
-                "18fb7b8b9cdd6302"
+                "18fb7b8b9cdd6302",
+                "2f15f8848d6c1155"
             ]
         ]
     },
@@ -657,7 +809,7 @@
         "finalize": "",
         "libs": [],
         "x": 460,
-        "y": 840,
+        "y": 1040,
         "wires": [
             [
                 "6adba060e9841633"
@@ -670,10 +822,10 @@
         "z": "40e2d7bc7787ade7",
         "name": "",
         "group": "4a30a8e0116ae52c",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
+        "order": 4,
+        "width": 6,
+        "height": 4,
+        "gtype": "wave",
         "title": "PPD",
         "label": "%",
         "format": "{{value}}",
@@ -688,8 +840,8 @@
         "seg2": "66",
         "diff": false,
         "className": "",
-        "x": 950,
-        "y": 840,
+        "x": 1050,
+        "y": 1040,
         "wires": []
     },
     {
@@ -701,8 +853,8 @@
         "tooltip": "",
         "group": "4a30a8e0116ae52c",
         "order": 10,
-        "width": 0,
-        "height": 0,
+        "width": 12,
+        "height": 2,
         "passthru": true,
         "decouple": "false",
         "topic": "",
@@ -780,7 +932,7 @@
         "correl": "",
         "expiry": "",
         "broker": "78e567fe49f2df20",
-        "x": 890,
+        "x": 990,
         "y": 720,
         "wires": []
     },
@@ -801,7 +953,8 @@
         "y": 80,
         "wires": [
             [
-                "b55a393fbe2202ad"
+                "b55a393fbe2202ad",
+                "b42a97b63f8fbdbf"
             ]
         ]
     },
@@ -826,53 +979,272 @@
         ]
     },
     {
-        "id": "4a30a8e0116ae52c",
-        "type": "ui_group",
-        "name": "Parameters",
-        "tab": "a6471fb1cc0ba838",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
+        "id": "ddfe7c3269d598fd",
+        "type": "function",
+        "z": "40e2d7bc7787ade7",
+        "name": "Parse airTemperature Payload",
+        "func": "var airTemperature = flow.get('airTemperature');\nmsg.payload = airTemperature;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 800,
+        "wires": [
+            [
+                "7d7181256aa98010"
+            ]
+        ]
     },
     {
-        "id": "78e567fe49f2df20",
-        "type": "mqtt-broker",
-        "name": "AC Server",
-        "broker": "192.168.57.129",
-        "port": "1883",
-        "clientid": "",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true,
-        "autoUnsubscribe": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthRetain": "false",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closeRetain": "false",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willRetain": "false",
-        "willPayload": "",
-        "willMsg": {},
-        "userProps": "",
-        "sessionExpiry": ""
+        "id": "7d7181256aa98010",
+        "type": "ui_chart",
+        "z": "40e2d7bc7787ade7",
+        "name": "airTemp",
+        "group": "4a30a8e0116ae52c",
+        "order": 9,
+        "width": 12,
+        "height": 4,
+        "label": "Air Temperature vs Time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "40",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1040,
+        "y": 800,
+        "wires": [
+            []
+        ]
     },
     {
-        "id": "a6471fb1cc0ba838",
-        "type": "ui_tab",
-        "name": "AC Control",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
+        "id": "977e2a7979b72e14",
+        "type": "file",
+        "z": "40e2d7bc7787ade7",
+        "name": "",
+        "filename": "/home/dev/ac_control_ws/ac_control.log",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1340,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4e6e75fa207828ff",
+        "type": "function",
+        "z": "40e2d7bc7787ade7",
+        "name": "Log out msgs",
+        "func": "var airTemperature = flow.get('airTemperature');\nvar radiantTemperature = flow.get('radiantTemperature');\nvar clothingLevel = flow.get('clothingLevel');\nvar metabolicRate = flow.get('metabolicRate');\nvar airVelocity = flow.get('airVelocity');\nvar relativeHumidity = flow.get('relativeHumidity');\n\nvar now = new Date();\nvar formattedTime = now.toISOString();\n\nvar logEntryOut = \n    \"[\" + formattedTime + \"] [OUTGOING]: \" + \"{ ta: \" + airTemperature + \" } \\n\" +\n    \"[\" + formattedTime + \"] [OUTGOING]: \" + \"{ tr: \" + radiantTemperature + \" } \\n\" +\n    \"[\" + formattedTime + \"] [OUTGOING]: \" + \"{ vel: \" + airVelocity + \" } \\n\" +\n    \"[\" + formattedTime + \"] [OUTGOING]: \" + \"{ rh: \" + relativeHumidity + \" } \\n\" +\n    \"[\" + formattedTime + \"] [OUTGOING]: \" + \"{ met: \" + metabolicRate + \" } \\n\" +\n    \"[\" + formattedTime + \"] [OUTGOING]: \" + \"{ clo: \" + clothingLevel + \" }\";\n\nflow.set('logEntryOut', logEntryOut);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 840,
+        "wires": [
+            [
+                "587ed0570921a636"
+            ]
+        ]
+    },
+    {
+        "id": "587ed0570921a636",
+        "type": "change",
+        "z": "40e2d7bc7787ade7",
+        "name": "Prepare Log Entry Out",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "logEntryOut",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 840,
+        "wires": [
+            [
+                "977e2a7979b72e14"
+            ]
+        ]
+    },
+    {
+        "id": "b6b7f037a277da73",
+        "type": "function",
+        "z": "40e2d7bc7787ade7",
+        "name": "Log in msg",
+        "func": "var payload = JSON.parse(msg.payload);\nvar pmv = payload.pmv;\n\nvar now = new Date();\nvar formattedTime = now.toISOString();\n\nvar logEntryInPMV = \"[\" + formattedTime + \"] [INCOMING]: { pmv: \" + pmv + \" }\";\n\nflow.set('logEntryInPMV', logEntryInPMV);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 920,
+        "wires": [
+            [
+                "a182d907b09cef19"
+            ]
+        ]
+    },
+    {
+        "id": "a182d907b09cef19",
+        "type": "change",
+        "z": "40e2d7bc7787ade7",
+        "name": "Prepare Log Entry In",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "logEntryInPMV",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 920,
+        "wires": [
+            [
+                "977e2a7979b72e14"
+            ]
+        ]
+    },
+    {
+        "id": "2f15f8848d6c1155",
+        "type": "function",
+        "z": "40e2d7bc7787ade7",
+        "name": "Log in msg",
+        "func": "var payload = JSON.parse(msg.payload);\nvar ppd = payload.ppd;\n\nvar now = new Date();\nvar formattedTime = now.toISOString();\n\nvar logEntryInPPD = \"[\" + formattedTime + \"] [INCOMING]: { ppd: \" + ppd + \" }\";\n\nflow.set('logEntryInPPD', logEntryInPPD);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 960,
+        "wires": [
+            [
+                "4d07b5069bb79743"
+            ]
+        ]
+    },
+    {
+        "id": "4d07b5069bb79743",
+        "type": "change",
+        "z": "40e2d7bc7787ade7",
+        "name": "Prepare Log Entry In",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "logEntryInPPD",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 960,
+        "wires": [
+            [
+                "977e2a7979b72e14"
+            ]
+        ]
+    },
+    {
+        "id": "b42a97b63f8fbdbf",
+        "type": "function",
+        "z": "40e2d7bc7787ade7",
+        "name": "Log in msg",
+        "func": "var payload = JSON.parse(msg.payload);\nvar tafix = payload.tafix;\n\nvar now = new Date();\nvar formattedTime = now.toISOString();\n\nvar logEntryInTaFix = \"[\" + formattedTime + \"] [INCOMING]: { tafix: \" + tafix + \" }\";\n\nflow.set('logEntryInTaFix', logEntryInTaFix);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 40,
+        "wires": [
+            [
+                "fad7330326d90f24"
+            ]
+        ]
+    },
+    {
+        "id": "fad7330326d90f24",
+        "type": "change",
+        "z": "40e2d7bc7787ade7",
+        "name": "Prepare Log Entry In",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "logEntryInTaFix",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 40,
+        "wires": [
+            [
+                "977e2a7979b72e14"
+            ]
+        ]
     }
 ]
